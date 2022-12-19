@@ -6,7 +6,15 @@ const createRequest = (config: any) => {
 }
 
 const stringifyKeyValuePair = ([key, value]: any[]) => {
-    return `${key}=${encodeURIComponent(value)}`
+    /*
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent#encoding_for_rfc3986
+
+    Also encodes ( and ) characters.
+    */
+    return `${key}=${encodeURIComponent(value).replace(
+        /[()]/g,
+        (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`
+    )}`
 }
 
 const removeEmptyValue = (obj: any) => {

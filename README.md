@@ -40,6 +40,7 @@ git clone https://github.com/mxcdevelop/mexc-api-sdk.git
     - [Account Trade List](#account-trade-list)
   - [Wallet](#wallet)
     - [Currency Information](#currency-information)
+    - [Withdraw](#withdraw)
 ## Init
 ```javascript
 //Javascript
@@ -460,4 +461,9 @@ options:{ orderId, startTime, endTime, fromId, limit}
 ### Currency Information
 ```javascript
 client.currencyInformation()
+```
+### Withdraw
+```javascript
+client.withdraw(coin: string, address: string, amount: string, options: any = {})
+options:{ withdrawOrderId, network, memo, remark}
 ```
