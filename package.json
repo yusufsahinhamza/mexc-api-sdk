@@ -28,7 +28,7 @@
     "@types/node"
   ],
   "devDependencies": {
-    "jsii": "1.44.1",
+    "jsii": "1.72.0",
     "jsii-pacmak": "1.44.1",
     "nodemon": "^2.0.15",
     "ts-node": "^10.4.0"
