@@ -50,4 +50,51 @@ export class Wallet extends Base {
 
     return formatDatas;
   }
+
+  /**
+   * Deposit History (supporting network)
+   *
+   * Ensure that the default timestamp of 'startTime' and 'endTime' does not exceed 90 days.
+   *
+   * @param options
+   * ```
+   * [options.coin]
+   * [options.status]
+   * [options.startTime] - default: 90 days ago from current time
+   * [options.endTime] - default:current time
+   * [options.limit] - default:1000,max:1000
+   * ```
+   * @returns
+   */
+  public depositHistory(options: any = {}) {
+    const res = this.signRequest('GET', '/capital/deposit/hisrec', options);
+    const rawData = JSON.parse(res.getBody());
+    const formatDatas = fromatData(rawData);
+
+    return formatDatas;
+  }
+
+  /**
+   * Withdraw History (supporting network)
+   *
+   * Supported multiple network coins' withdraw history may not return the 'network' field.
+   * Ensure that the default timestamp of 'startTime' and 'endTime' does not exceed 90 days.
+   *
+   * @param options
+   * ```
+   * [options.coin]
+   * [options.status] - withdraw status
+   * [options.limit] - default:1000, max:1000
+   * [options.startTime] - default: 90 days ago from current time
+   * [options.endTime] - default:current time
+   * ```
+   * @returns
+   */
+  public withdrawHistory(options: any = {}) {
+    const res = this.signRequest('GET', '/capital/withdraw/history', options);
+    const rawData = JSON.parse(res.getBody());
+    const formatDatas = fromatData(rawData);
+
+    return formatDatas;
+  }
 }

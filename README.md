@@ -41,6 +41,8 @@ git clone https://github.com/mxcdevelop/mexc-api-sdk.git
   - [Wallet](#wallet)
     - [Currency Information](#currency-information)
     - [Withdraw](#withdraw)
+    - [Deposit History (supporting network)](#deposit-history-supporting-network)
+    - [Withdraw History (supporting network)](#withdraw-history-supporting-network)
 ## Init
 ```javascript
 //Javascript
@@ -466,4 +468,14 @@ client.currencyInformation()
 ```javascript
 client.withdraw(coin: string, address: string, amount: string, options: any = {})
 options:{ withdrawOrderId, network, memo, remark}
+```
+### Deposit History (supporting network)
+```javascript
+client.depositHistory(options: any = {})
+options:{ coin, status, startTime, endTime, limit}
+```
+### Withdraw History (supporting network)
+```javascript
+client.withdrawHistory(options: any = {})
+options:{ coin, status, limit, startTime, endTime}
 ```
