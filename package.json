@@ -7,7 +7,7 @@
   "scripts": {
     "build": "jsii",
     "build:watch": "jsii --watch",
-    "package": "mv ./test ../ && rm -rf ./dist && jsii-pacmak -vvv && mv ../test ./"
+    "package": "mv ./test ../ && rm -rf ./dist && jsii-pacmak -vvv && mv ../test ./ && zip -r ./dist/go/mexcsdk.zip ./dist/go/mexcsdk && zip -r ./dist/java/Mexc.zip ./dist/java/Mexc && rm -rf ./dist/go/mexcsdk ./dist/java/Mexc"
   },
   "repository": {
     "type": "git",
