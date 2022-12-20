@@ -1,6 +1,8 @@
 # mexc-api-sdk
 
- MEXC Official Market and trade api sdk, easy to connection and send request to MEXC open api !
+ MEXC Non-Official Market and trade api sdk, easy to connection and send request to MEXC open api !
+
+ This repository is a fork of official MEXC api sdk with more endpoints, bug-fixes and support, feel free to create issue for anything, note that this repository is pretty much for personal use, use it at your own risk.
 
 ## Prerequisites
   - To use our SDK you have to install nodejs LTS (https://aws.github.io/jsii/user-guides/lib-user/)
