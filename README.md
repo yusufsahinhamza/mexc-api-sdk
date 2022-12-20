@@ -43,6 +43,8 @@ git clone https://github.com/mxcdevelop/mexc-api-sdk.git
     - [Withdraw](#withdraw)
     - [Deposit History (supporting network)](#deposit-history-supporting-network)
     - [Withdraw History (supporting network)](#withdraw-history-supporting-network)
+    - [Generate deposit address (supporting network)](#generate-deposit-address-supporting-network)
+    - [Deposit Address (supporting network)](#deposit-address-supporting-network)
 ## Init
 ```javascript
 //Javascript
@@ -114,7 +116,7 @@ client.time()
 ### Exchange Information
 ```javascript
 client.exchangeInfo(options: any)
-options:{symbol, symbols}
+options:{ symbol, symbols }
 /**
  * choose one parameter
  *
@@ -131,7 +133,7 @@ options:{symbol, symbols}
 ### Recent Trades List
 ```javascript
 client.trades(symbol: string, options: any = { limit: 500 })
-options:{limit}
+options:{ limit }
 /**
  *
  * limit :
@@ -144,7 +146,7 @@ options:{limit}
 ### Order Book
 ```javascript
 client.depth(symbol: string, options: any = { limit: 100 })
-options:{limit}
+options:{ limit }
 /**
  * limit :
  *      Number of returned data
@@ -158,7 +160,7 @@ options:{limit}
 ### Old Trade Lookup
 ```javascript
 client.historicalTrades(symbol: string, options: any = { limit: 500 })
-options:{limit, fromId}
+options:{ limit, fromId }
 /**
  *
  * limit :
@@ -176,7 +178,7 @@ options:{limit, fromId}
 ### Aggregate Trades List
 ```javascript
 client.aggTrades(symbol: string, options: any = { limit: 500 })
-options:{fromId, startTime, endTime, limit}
+options:{ fromId, startTime, endTime, limit }
 /**
  *
  * fromId :
@@ -198,7 +200,7 @@ options:{fromId, startTime, endTime, limit}
 ### kline Data
 ```javascript
 client.klines(symbol: string, interval: string, options: any = { limit: 500 })
-options:{ startTime, endTime, limit}
+options:{ startTime, endTime, limit }
 /**
  *
  * interval :
@@ -244,7 +246,7 @@ client.bookTicker(symbol?: string)
 ### Test New Order
 ```javascript
 client.newOrderTest(symbol: string, side: string, orderType: string, options: any = {})
-options:{ timeInForce, quantity, quoteOrderQty, price, newClientOrderId, stopPrice, icebergQty, newOrderRespType, recvWindow}
+options:{ timeInForce, quantity, quoteOrderQty, price, newClientOrderId, stopPrice, icebergQty, newOrderRespType, recvWindow }
 /**
  *
  * side:
@@ -304,7 +306,7 @@ options:{ timeInForce, quantity, quoteOrderQty, price, newClientOrderId, stopPri
 ### New Order
 ```javascript
 client.newOrder(symbol: string, side: string, orderType: string, options: any = {})
-options:{ timeInForce, quantity, quoteOrderQty, price, newClientOrderId, stopPrice, icebergQty, newOrderRespType, recvWindow}
+options:{ timeInForce, quantity, quoteOrderQty, price, newClientOrderId, stopPrice, icebergQty, newOrderRespType, recvWindow }
 /**
  *
  * side:
@@ -364,7 +366,7 @@ options:{ timeInForce, quantity, quoteOrderQty, price, newClientOrderId, stopPri
 ### cancel-order
 ```javascript
 client.cancelOrder(symbol: string, options:any = {})
-options:{ orderId, origClientOrderId, newClientOrderId}
+options:{ orderId, origClientOrderId, newClientOrderId }
 /**
  *
  * Either orderId or origClientOrderId must be sent
@@ -389,7 +391,7 @@ client.cancelOpenOrders(symbol: string)
 ### Query Order
 ```javascript
 client.queryOrder(symbol: string, options:any = {})
-options:{ orderId, origClientOrderId}
+options:{ orderId, origClientOrderId }
 /**
  *
  * Either orderId or origClientOrderId must be sent
@@ -409,7 +411,7 @@ client.openOrders(symbol: string)
 ### All Orders
 ```javascript
 client.allOrders(symbol: string, options: any = { limit: 500 })
-options:{ orderId, startTime, endTime, limit}
+options:{ orderId, startTime, endTime, limit }
 
 /**
  *
@@ -436,7 +438,7 @@ client.accountInfo()
 ### Account Trade List
 ```javascript
 client.accountTradeList(symbol: string, options:any = { limit: 500 })
-options:{ orderId, startTime, endTime, fromId, limit}
+options:{ orderId, startTime, endTime, fromId, limit }
 
 /**
  *
@@ -467,15 +469,24 @@ client.currencyInformation()
 ### Withdraw
 ```javascript
 client.withdraw(coin: string, address: string, amount: string, options: any = {})
-options:{ withdrawOrderId, network, memo, remark}
+options:{ withdrawOrderId, network, memo, remark }
 ```
 ### Deposit History (supporting network)
 ```javascript
 client.depositHistory(options: any = {})
-options:{ coin, status, startTime, endTime, limit}
+options:{ coin, status, startTime, endTime, limit }
 ```
 ### Withdraw History (supporting network)
 ```javascript
 client.withdrawHistory(options: any = {})
-options:{ coin, status, limit, startTime, endTime}
+options:{ coin, status, limit, startTime, endTime }
+```
+### Generate deposit address (supporting network)
+```javascript
+client.generateDepositAddress(coin: string, network: string)
+```
+### Deposit Address (supporting network)
+```javascript
+client.depositAddress(coin: string, options: any = {})
+options:{ network }
 ```

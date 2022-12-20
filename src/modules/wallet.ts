@@ -97,4 +97,54 @@ export class Wallet extends Base {
 
     return formatDatas;
   }
+
+  /**
+   * Generate deposit address (supporting network)
+   *
+   * @param coin
+   * @param network - deposit network
+   *
+   * @returns
+   */
+  public generateDepositAddress(coin: string, network: string) {
+    if ([coin, network].some(str => !str.trim())) {
+      console.assert(false, `Some params are required`);
+      return;
+    }
+
+    const res = this.signRequest('POST', '/capital/deposit/address', {
+      coin: coin.toUpperCase(),
+      network: network.toUpperCase(),
+    });
+    const rawData = JSON.parse(res.getBody());
+    const formatDatas = fromatData(rawData);
+
+    return formatDatas;
+  }
+
+  /**
+   * Deposit Address (supporting network)
+   *
+   * @param coin
+   * @param options
+   * ```
+   * [options.network] - deposit network
+   * ```
+   *
+   * @returns
+   */
+  public depositAddress(coin: string, options: any = {}) {
+    if ([coin].some(str => !str.trim())) {
+      console.assert(false, `Some params are required`);
+      return;
+    }
+
+    const res = this.signRequest('GET', '/capital/deposit/address', Object.assign(options, {
+      coin: coin.toUpperCase(),
+    }));
+    const rawData = JSON.parse(res.getBody());
+    const formatDatas = fromatData(rawData);
+
+    return formatDatas;
+  }
 }
