@@ -72,7 +72,7 @@ func main() {
 ```python
 # python
 from mexc_sdk import Spot
-client = Spot(api_key='apiKey', apiSecret='apiSecret')
+spot = Spot(api_key='apiKey', api_secret='apiSecret')
 ```
 ```java
 // java
